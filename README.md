@@ -100,6 +100,7 @@ and returns
 #### Filter format
 
 It's an array with the following items, between then its and AND operation
+
 The possibles operations are ```=, !=, >, <, >=, <=, in```
 
 ```JSON
