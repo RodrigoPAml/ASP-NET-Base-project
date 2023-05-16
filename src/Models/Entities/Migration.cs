@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace API.Models.Entities
 {
-    [Description("Migração")]
+    [Description("Migration")]
     public class Migration : Entity
     {
         public string Name { get; set; }

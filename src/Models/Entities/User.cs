@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace API.Models.Entities
 {
-    [Description("Usuário")]
+    [Description("User")]
     public class User : Entity
     {
         #region Fields
