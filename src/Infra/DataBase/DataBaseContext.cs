@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using API.Infra.Registration;
+using API.Registration;
 
 namespace API.Infra.Database
 {

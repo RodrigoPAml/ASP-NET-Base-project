@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace API.Infra.Registration
+namespace API.Registration
 {
     public static class SwaggerRegister
     {

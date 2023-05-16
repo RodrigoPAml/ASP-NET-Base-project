@@ -3,7 +3,7 @@ using API.Models.NewEntity;
 using API.Models.UpdatedEntity;
 using AutoMapper;
 
-namespace API.Infra.Registration
+namespace API.Registration
 {
     public static class MapperRegister
     {

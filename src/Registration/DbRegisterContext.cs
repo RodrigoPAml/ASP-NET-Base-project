@@ -3,7 +3,7 @@ using API.Models.Entities;
 using API.Infra.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Infra.Registration
+namespace API.Registration
 {
     /// <summary>
     /// Register entities into db context

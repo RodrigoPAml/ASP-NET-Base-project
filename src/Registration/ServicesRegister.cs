@@ -1,7 +1,7 @@
 ﻿using API.Services.Implementations;
 using API.Services.Interfaces;
 
-namespace API.Infra.Registration
+namespace API.Registration
 {
     public static class ServicesRegister
     {

@@ -1,7 +1,6 @@
-﻿using API.Models.Entities;
-using API.Repositories;
+﻿using API.Repositories;
 
-namespace API.Infra.Registration
+namespace API.Registration
 {
     public static class RepositoriesRegister
     {

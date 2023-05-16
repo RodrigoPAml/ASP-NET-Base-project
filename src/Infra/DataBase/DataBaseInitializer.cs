@@ -1,6 +1,6 @@
 ﻿using API.Infra.Exceptions;
-using API.Infra.Registration;
 using API.Models.Entities;
+using API.Registration;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 

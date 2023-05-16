@@ -1,7 +1,7 @@
 using API.Infra.Database;
 using API.Infra.Authentication;
-using API.Infra.Registration;
 using Microsoft.EntityFrameworkCore;
+using API.Registration;
 
 namespace API
 {

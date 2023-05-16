@@ -1,4 +1,4 @@
-﻿using API.Infra.Registration;
+﻿using API.Registration;
 using AutoMapper;
 
 namespace API.Infra.Mapper
