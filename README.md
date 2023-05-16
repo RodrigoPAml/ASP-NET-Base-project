@@ -199,9 +199,9 @@ Use the user classes to understand how to do it
 - Create mapping between models and entity (Folder registration)
 - Create a repository class (Folder repositories)
 - Register repository (Folder registration)
-- Create a service class (Services repositories)
+- Create a service class (Folder services)
 - Register the service class (Folder registration)
-- Create the controller 
+- Create the controller (Folder controllers)
 - Test it!
 
 
