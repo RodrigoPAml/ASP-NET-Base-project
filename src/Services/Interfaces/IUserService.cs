@@ -11,7 +11,7 @@ namespace API.Services.Interfaces
 
         public object GetUser(ulong id);
 
-        public void CreateUser(NewUser newUser);
+        public ulong CreateUser(NewUser newUser);
 
         public void UpdateUser(UpdatedUser updatedUser);
 

@@ -17,7 +17,7 @@ namespace API.Infra.Responses
 #if DEBUG
         public static ResponseBody UnhandledError(Exception e) => new ResponseBody() { Message = e.Message + e.InnerException?.Message, Content = string.Empty, Success = false };
 #else
-        public static ResponseBody UnhandledError(Exception _) => new ResponseBody() { Message = "Erro interno. Por favor tente mais tarde ou contate o suporte", Content = string.Empty, Success = false};
+        public static ResponseBody UnhandledError(Exception _) => new ResponseBody() { Message = "Internal error. Please try later or contact the support", Content = string.Empty, Success = false};
 #endif
         public static ResponseBody NoContentSuccess(string message) => new ResponseBody() { Message = message, Content = string.Empty, Success = true };
         public static ResponseBody WithContentSuccess(string message, object content) => new ResponseBody() { Message = message, Content = content, Success = true };

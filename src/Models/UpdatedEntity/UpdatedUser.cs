@@ -21,10 +21,10 @@ namespace API.Models.UpdatedEntity
                 return;
 
             if (Name == null || Name.Count() == 0)
-                throw new BusinessException("Nome é obrigatório");
+                throw new BusinessException("Name is required");
 
             if (Name.Count() > 32)
-                throw new BusinessException("Nome deve ter no máximo 32 caracteres");
+                throw new BusinessException("Name must be a maximum of 32 characters");
         }
 
         #endregion

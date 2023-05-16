@@ -11,7 +11,7 @@ namespace API.Services.Implementations
         public void ValidateLoginExists(User user, ActionTypeEnum actionType, object actionInfo)
         {
             if(_repo.Any(x => x.Id != user.Id && x.Login == user.Login))
-                throw new BusinessException("Usuário com este login já existe");
+                throw new BusinessException("User with this login already exists");
         }
     }
 }

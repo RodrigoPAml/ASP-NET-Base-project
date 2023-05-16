@@ -39,7 +39,7 @@ namespace API.Controllers
             {
                 var list = _service.GetPaged(page, pageSize, UserFilter.Interpret(filters), UserOrderBy.Interpret(orderBy));
 
-                return ResponseBody.WithContentSuccess("Registros recuperados com sucesso!", list);
+                return ResponseBody.WithContentSuccess("Records retrieved successfully", list);
             }
             catch (BusinessException be)
             {
@@ -64,7 +64,7 @@ namespace API.Controllers
             {
                 var user = _service.GetUser(id);
 
-                return ResponseBody.WithContentSuccess("Registro recuperado com sucesso!", user);
+                return ResponseBody.WithContentSuccess("Record retrieved successfully", user);
             }
             catch (BusinessException be)
             {
@@ -87,9 +87,9 @@ namespace API.Controllers
         {
             try
             {
-                _service.CreateUser(newUser);
+                var id = _service.CreateUser(newUser);
 
-                return ResponseBody.NoContentSuccess("Registro criado com sucesso");
+                return ResponseBody.WithContentSuccess("Record created successfully", id);
             }
             catch (BusinessException be)
             {
@@ -114,7 +114,7 @@ namespace API.Controllers
             {
                 _service.UpdateUser(updatedUser);
 
-                return ResponseBody.NoContentSuccess("Registro atualizado com sucesso");
+                return ResponseBody.NoContentSuccess("Record updated successfully");
             }
             catch (BusinessException be)
             {
@@ -139,7 +139,7 @@ namespace API.Controllers
             {
                 _service.DeleteUser(id);
 
-                return ResponseBody.NoContentSuccess("Registro deletado com sucesso");
+                return ResponseBody.NoContentSuccess("Record deleted successfully");
             }
             catch (BusinessException be)
             {

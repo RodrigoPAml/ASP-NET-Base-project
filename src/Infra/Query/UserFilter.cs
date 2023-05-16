@@ -29,18 +29,18 @@ namespace API.Infra.Query
                     return null;
 
                 if (filter.Length > 2048)
-                    throw new BusinessException("Erro interno: Filtro informado excede limite de tamanho");
+                    throw new BusinessException("Internal error: Filter exceeds the size limit");
 
                 var filters = JsonSerializer.Deserialize<List<UserFilter>>(filter);
 
                 if (filters == null)
-                    throw new Exception("Falha ao interpretar filtros");
+                    throw new Exception("Fail to interpret filters");
 
                 return filters;
             }
             catch(Exception e)
             {
-                throw new BusinessException($"Erro interno: Não foi possível interpretar filtros recebidos: {e?.Message}");
+                throw new BusinessException($"Internal error: Can't interpret recieved filters: {e?.Message}");
             }
         }
 
@@ -59,10 +59,10 @@ namespace API.Infra.Query
             foreach (var filter in filters)
             {
                 if (!allowedFieldsNames.Contains(filter.Field.ToLower()))
-                    throw new BusinessException("Campo de filtro não permitido ou válido");
+                    throw new BusinessException("Filter field invalid or not allowed");
 
                 if (!operators.Contains(filter.Operation))
-                    throw new BusinessException("Operação de filtragem não permitida ou válida");
+                    throw new BusinessException("Filter operation invalid or not allowed");
             }
         }
 
@@ -77,8 +77,10 @@ namespace API.Infra.Query
 
                 foreach (var userFilter in userFilters)
                 {
-                    Type type = (typeof(T)
-                        .GetFieldOrProperty(userFilter.Field) as PropertyInfo)
+                    Type type = typeof(T)
+                        .GetProperties()
+                        .Where(x => x.Name.ToLower() == userFilter.Field.ToLower())
+                        .FirstOrDefault()
                         .PropertyType;
 
                     ConstantExpression right = Expression.Constant(Convert.ChangeType(userFilter.Value, type), type);
@@ -121,7 +123,7 @@ namespace API.Infra.Query
             }
             catch(Exception)
             {
-                throw new BusinessException("Erro interno na composição do filtro");
+                throw new BusinessException("Internal error in filter composition");
             }
         }
     }

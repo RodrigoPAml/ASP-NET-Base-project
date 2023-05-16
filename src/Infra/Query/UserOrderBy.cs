@@ -25,7 +25,7 @@ namespace API.Infra.Query
                     return null;
 
                 if (orderBy.Length > 128)
-                    throw new BusinessException("Erro interno: Ordenação informada excede limite de tamanho");
+                    throw new BusinessException("Internal error: Informed ordenation exceeds size limit");
 
                 var order = JsonSerializer.Deserialize<UserOrderBy>(orderBy);
 
@@ -36,7 +36,7 @@ namespace API.Infra.Query
             }
             catch(Exception)
             {
-                throw new BusinessException("Erro interno: Não foi possível interpretar ordenação recebida");
+                throw new BusinessException("Internal error: Can't interpret recieved ordenation");
             }
         }
 
@@ -51,7 +51,7 @@ namespace API.Infra.Query
             var allowedFieldsNames = allowedFields.GetNames();
 
             if (!allowedFieldsNames.Contains(orderBy.Field))
-                throw new BusinessException("Erro interno: Ordenação por campo não permitido");
+                throw new BusinessException("Internal error: Ordenation by this fields is invalid or not allowed");
         }
 
         public static OrderBy<T> Compose<T>(UserOrderBy userOrderBy) where T : Entity
@@ -72,7 +72,7 @@ namespace API.Infra.Query
             }
             catch(Exception)
             {
-                throw new BusinessException("Erro interno na composição de ordenação");
+                throw new BusinessException("Internal in ordenation composition");
             }
         }
     }

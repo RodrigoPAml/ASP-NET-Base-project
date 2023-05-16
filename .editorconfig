@@ -61,6 +61,9 @@ dotnet_naming_style.pascal_case.word_separator =
 dotnet_naming_style.pascal_case.capitalization = pascal_case
 csharp_space_around_binary_operators = before_and_after
 
+# CS8602: Desreferência de uma referência possivelmente nula.
+dotnet_diagnostic.CS8602.severity = none
+
 [*.vb]
 #### Estilos de nomenclatura ####
 

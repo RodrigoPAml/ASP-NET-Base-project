@@ -33,7 +33,7 @@ namespace API.Controllers
             try
             {
                 var token = _service.GetToken(login, password);
-                return ResponseBody.WithContentSuccess("Login realizado com sucesso!", token);
+                return ResponseBody.WithContentSuccess("Logged with success!", token);
             }
             catch (BusinessException be)
             {

@@ -80,7 +80,7 @@ namespace API.Infra.Base
         public void Create(T entity, object actionInfo = null) 
         {
             if (entity == null)
-                throw new InternalException($"Criar entidade '{typeof(T).GetTypeDescription()}' nula não é permitido");
+                throw new InternalException($"Create null entity '{typeof(T).GetTypeDescription()}' is not allowed");
 
             _transaction.Begin();
 
@@ -96,10 +96,10 @@ namespace API.Infra.Base
         public void Update(T entity, Fields<T> fieldsToUpdate, object actionInfo = null)
         {
             if (entity == null)
-                throw new InternalException($"Atualizar entidade '{typeof(T).GetTypeDescription()}' nula não é permitido");
+                throw new InternalException($"Update null entity '{typeof(T).GetTypeDescription()}' is not allowed permitido");
 
             if (fieldsToUpdate == null || fieldsToUpdate.Count() == 0)
-                throw new BusinessException($"Nenhuma modificação identificada");
+                throw new BusinessException($"No modifications detected");
 
             _transaction.Begin();
 
@@ -154,7 +154,7 @@ namespace API.Infra.Base
         public PagedData GetPaged(uint page, uint pageSize, Filter<T> filter, Expression<Func<T, dynamic>> select, OrderBy<T> orderBy = null, Expression<Func<T, bool>> additional = null)
         {
             if (page == 0 || pageSize == 0)
-                throw new BusinessException("Argumentos de paginação inválidos");
+                throw new BusinessException("Invalid pagination arguments");
 
             int rowsToSkip = (int)((page - 1) * pageSize);
 

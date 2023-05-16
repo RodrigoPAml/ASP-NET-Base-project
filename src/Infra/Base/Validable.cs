@@ -49,18 +49,18 @@ namespace API.Infra.Base
                             }
                             else
                             {
-                                throw new InternalException($"Método de validação falhou. {this.GetType().FullName}:{method.GetType().Name}.\n {e.Message}\n{e.InnerException?.Message}");
+                                throw new InternalException($"Validaion method failed: {this.GetType().FullName}:{method.GetType().Name}.\n {e.Message}\n{e.InnerException?.Message}");
                             }
                         }
                     }
                     else
                     {
-                        throw new InternalException($"Método de validação não deve ter parâmetros. {this.GetType().FullName}:{method.GetType().Name}");
+                        throw new InternalException($"Validation method can't have parameters: {this.GetType().FullName}:{method.GetType().Name}");
                     }
                 }
                 else
                 {
-                    throw new InternalException($"Método de validação com retorno inválido. {this.GetType().FullName}:{method.GetType().Name}");
+                    throw new InternalException($"Validation method with invalid parameters: {this.GetType().FullName}:{method.GetType().Name}");
                 }
             }
 

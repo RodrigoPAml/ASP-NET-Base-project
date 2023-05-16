@@ -35,10 +35,10 @@ namespace API.Services.Implementations
                 .FirstOrDefault();
 
             if (user == null)
-                throw new BusinessException("Login ou senha incorretos");
+                throw new BusinessException("Incorrect login or password");
 
             if(!Infra.Utils.BCrypt.IsValidPassword(password, user.Password))
-                throw new BusinessException("Login ou senha incorretos");
+                throw new BusinessException("Incorrect login or password");
 
             string token = TokenGenerator.CreateToken(new List<Claim>()
             {

@@ -65,28 +65,30 @@ namespace API.Services.Implementations
                 .FirstOrDefault();
 
             if(user == null)
-                throw new BusinessException("Usuário não encontrado");
+                throw new BusinessException("User not found");
 
             return user;
         }
 
-        public void CreateUser(NewUser newUser)
+        public ulong CreateUser(NewUser newUser)
         {
             newUser.ValidateWithError();
 
             var entity = ClassMapper.Map<User>(newUser);
 
             if (entity == null)
-                throw new InternalException($"Falha no mapemento entre {nameof(User)} e {nameof(NewUser)}");
+                throw new InternalException($"Mapping failure between {nameof(User)} and {nameof(NewUser)}");
             
             entity.Password = Infra.Utils.BCrypt.EncryptPassword(newUser.Password);
             Create(entity);
+
+            return entity.Id;
         }
 
         public void UpdateUser(UpdatedUser updatedUser)
         {
             if (!_repo.Any(x => x.Id == updatedUser.Id))
-                throw new BusinessException("Usuário não encontrado");
+                throw new BusinessException("User not found");
 
             updatedUser.ValidateWithError();
 
@@ -98,7 +100,7 @@ namespace API.Services.Implementations
             var entity = ClassMapper.Map<User>(updatedUser);
 
             if (entity == null)
-                throw new InternalException($"Falha no mapemento entre {nameof(User)} e {nameof(UpdatedUser)}");
+                throw new InternalException($"Mapping failure between {nameof(User)} and {nameof(UpdatedUser)}");
 
             Update(entity, fields);
         }
@@ -106,7 +108,7 @@ namespace API.Services.Implementations
         public void DeleteUser(ulong id)
         {
             if (!_repo.Any(x => x.Id == id))
-                throw new BusinessException("Usuário não encontrado");
+                throw new BusinessException("User not found");
 
             Delete(id);
         }
