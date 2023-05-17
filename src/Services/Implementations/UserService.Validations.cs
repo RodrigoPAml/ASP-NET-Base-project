@@ -1,12 +1,10 @@
 ﻿using API.Models.Entities;
-using API.Infra.Base;
-using API.Services.Interfaces;
 using API.Infra.Exceptions;
 using API.Infra.Enums;
 
 namespace API.Services.Implementations
 {
-    public partial class UserService : BaseService<User>, IUserService
+    public partial class UserService
     {
         public void ValidateLoginExists(User user, ActionTypeEnum actionType, object actionInfo)
         {

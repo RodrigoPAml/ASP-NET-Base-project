@@ -11,20 +11,20 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class SessionController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<SessionController> _logger;
 
-        private readonly IUserService _service;
+        private readonly ISessionService _service;
 
-        public UserController(IServiceProvider provider, ILogger<UserController> logger)
+        public SessionController(IServiceProvider provider, ILogger<SessionController> logger)
         {
             _logger = logger;
-            _service = provider.GetService<IUserService>();
+            _service = provider.GetService<ISessionService>();
         }
 
         /// <summary>
-        /// Get Users paginated
+        /// Get Sessions paginated
         /// </summary>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -52,11 +52,11 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Get User by id
+        /// Get Session by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("GetUser")]
+        [HttpGet("GetSession")]
         [Authorize]
         public ResponseBody Get(ulong id)
         {
@@ -77,13 +77,13 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Create new User
+        /// Create new Session
         /// </summary>
         /// <param name="newEntity"></param>
         /// <returns></returns>
-        [HttpPost("CreateUser")]
+        [HttpPost("CreateSession")]
         [AllowAnonymous]
-        public ResponseBody Post([FromBody] NewUser newEntity)
+        public ResponseBody Post([FromBody] NewSession newEntity)
         {
             try
             {
@@ -102,13 +102,13 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Update User
+        /// Update Session
         /// </summary>
         /// <param name="updatedEntity"></param>
         /// <returns></returns>
-        [HttpPut("UpdateUser")]
+        [HttpPut("UpdateSession")]
         [Authorize]
-        public ResponseBody Put([FromBody] UpdatedUser updatedEntity)
+        public ResponseBody Put([FromBody] UpdatedSession updatedEntity)
         {
             try
             {
@@ -127,13 +127,13 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Delete User
+        /// Delete Session
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("DeleteUser")]
+        [HttpDelete("DeleteSession")]
         [Authorize]
-        public ResponseBody DeleteUser(ulong id)
+        public ResponseBody DeleteSession(ulong id)
         {
             try
             {

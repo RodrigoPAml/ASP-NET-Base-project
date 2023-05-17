@@ -51,7 +51,7 @@ namespace API.Services.Implementations
             );
         }
 
-        public object GetUser(ulong id)
+        public object Get(ulong id)
         {
             var user = Get(
                 x => x.Id == id,
@@ -70,34 +70,34 @@ namespace API.Services.Implementations
             return user;
         }
 
-        public ulong CreateUser(NewUser newUser)
+        public ulong Create(NewUser newEntity)
         {
-            newUser.ValidateWithError();
+            newEntity.ValidateWithError();
 
-            var entity = ClassMapper.Map<User>(newUser);
+            var entity = ClassMapper.Map<User>(newEntity);
 
             if (entity == null)
                 throw new InternalException($"Mapping failure between {nameof(User)} and {nameof(NewUser)}");
             
-            entity.Password = Infra.Utils.BCrypt.EncryptPassword(newUser.Password);
+            entity.Password = Infra.Utils.BCrypt.EncryptPassword(newEntity.Password);
             Create(entity);
 
             return entity.Id;
         }
 
-        public void UpdateUser(UpdatedUser updatedUser)
+        public void Update(UpdatedUser updatedEntity)
         {
-            if (!_repo.Any(x => x.Id == updatedUser.Id))
+            if (!_repo.Any(x => x.Id == updatedEntity.Id))
                 throw new BusinessException("User not found");
 
-            updatedUser.ValidateWithError();
+            updatedEntity.ValidateWithError();
 
             Fields<User> fields = new Fields<User>();
 
-            if (updatedUser.UpdateName)
+            if (updatedEntity.UpdateName)
                 fields.AddField(x => x.Name);
 
-            var entity = ClassMapper.Map<User>(updatedUser);
+            var entity = ClassMapper.Map<User>(updatedEntity);
 
             if (entity == null)
                 throw new InternalException($"Mapping failure between {nameof(User)} and {nameof(UpdatedUser)}");
@@ -105,12 +105,12 @@ namespace API.Services.Implementations
             Update(entity, fields);
         }
 
-        public void DeleteUser(ulong id)
+        public void Delete(ulong id)
         {
             if (!_repo.Any(x => x.Id == id))
                 throw new BusinessException("User not found");
 
-            Delete(id);
+            base.Delete(id);
         }
     }
 }

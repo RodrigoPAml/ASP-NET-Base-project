@@ -11,6 +11,8 @@ namespace API.Registration
         public static void Register(IServiceCollection services)
         {
             services.AddScoped<UserRepository>();
+            services.AddScoped<MovieRepository>();
+            services.AddScoped<SessionRepository>();
         }
     }
 }

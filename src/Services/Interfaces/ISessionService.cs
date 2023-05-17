@@ -5,15 +5,15 @@ using API.Models.UpdatedEntity;
 
 namespace API.Services.Interfaces
 {
-    public interface IUserService
+    public interface ISessionService
     {
         public PagedData GetPaged(uint page, uint pageSize, List<UserFilter> userFilters, UserOrderBy orderBy);
 
         public object Get(ulong id);
 
-        public ulong Create(NewUser newUser);
+        public ulong Create(NewSession newEntity);
 
-        public void Update(UpdatedUser updatedUser);
+        public void Update(UpdatedSession updatedEntity);
 
         public void Delete(ulong id);
     }

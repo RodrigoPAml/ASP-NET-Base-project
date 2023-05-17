@@ -12,6 +12,8 @@ namespace API.Registration
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Migration> Migrations { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Session> Sessions { get; set; }
 
         public DbRegisterContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
@@ -21,6 +23,8 @@ namespace API.Registration
         {
             modelBuilder.Entity<Migration>(entity => new MigrationMapping().OnBuild(entity));
             modelBuilder.Entity<User>(entity => new UserMapping().OnBuild(entity));
+            modelBuilder.Entity<Movie>(entity => new MovieMapping().OnBuild(entity));
+            modelBuilder.Entity<Session>(entity => new SessionMapping().OnBuild(entity));
         }
     }
 }

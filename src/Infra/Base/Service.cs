@@ -151,7 +151,7 @@ namespace API.Infra.Base
                 .ToList();
         }
 
-        public PagedData GetPaged(uint page, uint pageSize, Filter<T> filter, Expression<Func<T, dynamic>> select, OrderBy<T> orderBy = null, Expression<Func<T, bool>> additional = null)
+        public PagedData GetPaged(uint page, uint pageSize, Filter<T> filter, Expression<Func<T, dynamic>> select, OrderBy<T> orderBy = null)
         {
             if (page == 0 || pageSize == 0)
                 throw new BusinessException("Invalid pagination arguments");
@@ -160,9 +160,6 @@ namespace API.Infra.Base
 
             var partialFilter = _repo
                 .Where(filter);
-
-            if(additional != null)
-                partialFilter = partialFilter.Where(additional);
 
             var order = orderBy != null ? orderBy.GetExpression() : (x => x.Id);
             bool asc = orderBy != null ? orderBy.Ascending() : true;

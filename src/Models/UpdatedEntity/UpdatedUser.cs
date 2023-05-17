@@ -24,7 +24,7 @@ namespace API.Models.UpdatedEntity
                 throw new BusinessException("Name is required");
 
             if (Name.Count() > 32)
-                throw new BusinessException("Name must be a maximum of 32 characters");
+                throw new BusinessException("Name must have a maximum of 32 characters");
         }
 
         #endregion

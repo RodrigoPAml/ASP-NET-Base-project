@@ -26,7 +26,7 @@ namespace API.Models.NewEntity
                 throw new BusinessException("Password must be at least 10 characters long");
 
             if (Password.Count() > 32)
-                throw new BusinessException("Password must be a maximum of 32 characters");
+                throw new BusinessException("Password must have a maximum of 32 characters");
         }
 
         [Validator]
@@ -36,7 +36,7 @@ namespace API.Models.NewEntity
                 throw new BusinessException("Login is required");
 
             if (!Regex.IsMatch(Login, @"^([a-zA-Z0-9]|\@|\.)+$"))
-                throw new BusinessException("Login deve ter apenas letras ou/e números");
+                throw new BusinessException("Login must have only letters and numbers");
 
             if (Encoding.UTF8.GetByteCount(Login) != Login.Length)
                 throw new BusinessException("Login must have only letters and numbers");
@@ -56,7 +56,7 @@ namespace API.Models.NewEntity
                 throw new BusinessException("Name is required");
 
             if (Name.Count() > 32)
-                throw new BusinessException("Name must be a maximum of 32 characters");
+                throw new BusinessException("Name must have a maximum of 32 characters");
         }
 
         #endregion

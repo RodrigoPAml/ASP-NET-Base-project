@@ -15,6 +15,12 @@ namespace API.Registration
         {
             configuration.CreateMap<NewUser, User>();
             configuration.CreateMap<UpdatedUser, User>();
+
+            configuration.CreateMap<NewMovie, Movie>();
+            configuration.CreateMap<UpdatedMovie, Movie>();
+
+            configuration.CreateMap<NewSession, Session>();
+            configuration.CreateMap<UpdatedSession, Session>();
         }
     }
 }

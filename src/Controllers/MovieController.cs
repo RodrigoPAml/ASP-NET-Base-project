@@ -11,20 +11,20 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class MovieController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<MovieController> _logger;
 
-        private readonly IUserService _service;
+        private readonly IMovieService _service;
 
-        public UserController(IServiceProvider provider, ILogger<UserController> logger)
+        public MovieController(IServiceProvider provider, ILogger<MovieController> logger)
         {
             _logger = logger;
-            _service = provider.GetService<IUserService>();
+            _service = provider.GetService<IMovieService>();
         }
 
         /// <summary>
-        /// Get Users paginated
+        /// Get Movies paginated
         /// </summary>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -52,11 +52,11 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Get User by id
+        /// Get Movie by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("GetUser")]
+        [HttpGet("GetMovie")]
         [Authorize]
         public ResponseBody Get(ulong id)
         {
@@ -77,13 +77,13 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Create new User
+        /// Create new Movie
         /// </summary>
         /// <param name="newEntity"></param>
         /// <returns></returns>
-        [HttpPost("CreateUser")]
+        [HttpPost("CreateMovie")]
         [AllowAnonymous]
-        public ResponseBody Post([FromBody] NewUser newEntity)
+        public ResponseBody Post([FromBody] NewMovie newEntity)
         {
             try
             {
@@ -102,13 +102,13 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Update User
+        /// Update Movie
         /// </summary>
         /// <param name="updatedEntity"></param>
         /// <returns></returns>
-        [HttpPut("UpdateUser")]
+        [HttpPut("UpdateMovie")]
         [Authorize]
-        public ResponseBody Put([FromBody] UpdatedUser updatedEntity)
+        public ResponseBody Put([FromBody] UpdatedMovie updatedEntity)
         {
             try
             {
@@ -127,13 +127,13 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Delete User
+        /// Delete Movie
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("DeleteUser")]
+        [HttpDelete("DeleteMovie")]
         [Authorize]
-        public ResponseBody DeleteUser(ulong id)
+        public ResponseBody DeleteMovie(ulong id)
         {
             try
             {
