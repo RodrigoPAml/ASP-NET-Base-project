@@ -1,6 +1,4 @@
 ﻿using API.Models.Entities;
-using API.Infra.Base;
-using API.Services.Interfaces;
 using API.Infra.Exceptions;
 using API.Infra.Enums;
 using API.Repositories;
