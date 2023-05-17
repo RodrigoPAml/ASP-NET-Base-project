@@ -17,7 +17,7 @@ Current used with postgres but can be adapted to other databases easily
 
 ## Overview
 
- - Comes with authentication and user CRUD
+ - Comes with authentication and user, movie and session CRUD
  
  ```sql
  create table if not exists public.user (
@@ -26,6 +26,21 @@ Current used with postgres but can be adapted to other databases easily
 	password text not null,
 	name varchar(32) not null,
 	profile smallint not null
+);
+
+create table if not exists public.movie (
+	id bigint primary key generated always as identity,
+	name varchar(64) not null,
+	synopsis varchar(512),
+	duration decimal not null,
+	genre smallint not null
+);
+
+create table if not exists public.session (
+	id bigint primary key generated always as identity,
+	movie_id bigint not null,
+	date timestamptz not null,
+	CONSTRAINT fk_movie FOREIGN KEY (movie_id) REFERENCES movie (id)
 );
  ```
 
@@ -192,7 +207,7 @@ and the results
 
 ## Implementing a new database object
 
-Use the user classes to understand how to do it
+Use the movie and/or session classes to understand how to do it
 
 - Create migration and put in migrations folders (Folder migrations)
 - Create the entity model and crud models NewEntity and UpdatedEntity with its validations (Folder Models)
