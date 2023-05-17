@@ -44,7 +44,7 @@ create table if not exists public.session (
 );
  ```
 
-![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/b550a0f8-eb56-4052-b552-44643da0c16a)
+![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/38120351-d917-427d-b837-fda5f033824d)
 
 ### Login
 
