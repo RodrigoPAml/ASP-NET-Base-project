@@ -13,7 +13,7 @@ namespace API.Services.Implementations
         {
             var movieRepository = _provider.GetService<MovieRepository>();
 
-            if (movieRepository.Any(x => x.Id == session.MovieId))
+            if (!movieRepository.Any(x => x.Id == session.MovieId))
                 throw new BusinessException("The provided movie do not exist");
         }
     }

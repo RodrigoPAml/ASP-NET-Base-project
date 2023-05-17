@@ -18,7 +18,7 @@ namespace API.Models.UpdatedEntity
 
         public bool UpdateSynopsis{ get; set; }
 
-        public DateTime? Duration { get; set; }
+        public float? Duration { get; set; }
 
         public bool UpdateDuration { get; set; }
 
