@@ -14,6 +14,7 @@ Current used with postgres but can be adapted to other databases easily
 - Model self validation
 - Service hooks
 - Entity Auto Mapper
+- MVC pattern where (View should be in a javascript front-end consuming json)
 
 ## Overview
 
