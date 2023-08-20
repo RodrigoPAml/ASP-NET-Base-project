@@ -59,12 +59,6 @@ POST http://localhost:5001/User/CreateUser and returns the id
 
 ![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/d39fb0e7-9b6d-424b-90b1-92ba3a705202)
 
-### Update User
-
-PUT http://localhost:5001/User/UpdateUser
-
-![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/2a08c833-6ab0-48fe-9a9e-34a23c74c65f)
-
 ### Get User Paged
 
 GET http://localhost:5001/User/GetPaged?page=1&pageSize=10
