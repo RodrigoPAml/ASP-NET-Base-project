@@ -32,7 +32,7 @@ namespace API.Controllers
         /// <param name="orderBy"></param>
         /// <returns></returns>
         [HttpGet("GetPaged")]
-        //[Authorize]
+        [Authorize]
         public ResponseBody Get(uint page, uint pageSize, string? filters, string? orderBy)
         {
             try
