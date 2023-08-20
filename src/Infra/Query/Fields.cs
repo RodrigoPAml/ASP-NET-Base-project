@@ -54,6 +54,39 @@ namespace API.Infra.Query
                 _fields.Add(field);
         }
 
+        public void RemoveField(Expression<Func<T, object>> field)
+        {
+            if (field == null) 
+                return;
+
+            _fields.Remove(x => Equals(x, field));
+        }
+
+        public void AddAllFields()
+        {
+            AddAllFieldsExcept();
+        }
+
+        public void AddAllFieldsExcept(params Expression<Func<T, object>>[] ignoreFields)
+        {
+            var allProperties = typeof(T).GetProperties();
+
+            foreach (var property in allProperties)
+            {
+                var parameter = Expression.Parameter(typeof(T), "x");
+                var propertyExpression = Expression.Property(parameter, property);
+                var lambdaExpression = Expression.Lambda<Func<T, object>>(Expression.Convert(propertyExpression, typeof(object)), parameter);
+
+                if (!_fields.Any(x => Equals(x, lambdaExpression)) && !ignoreFields.Any(x => Equals(x, lambdaExpression)))
+                    _fields.Add(lambdaExpression);
+            }
+        }
+        
+        public void RemoveAllFields()
+        {
+            _fields.Clear();
+        }
+
         public bool ContainsField(Expression<Func<T, object>> field)
         {
             return _fields.Any(x => Equals(x, field));

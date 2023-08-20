@@ -10,16 +10,11 @@ namespace API.Models.UpdatedEntity
 
         public string? Name { get; set; }
 
-        public bool UpdateName { get; set; }
-
         #region Validations
 
         [Validator]
         protected void ValidateName()
         {
-            if (!UpdateName)
-                return;
-
             if (Name == null || Name.Count() == 0)
                 throw new BusinessException("Name is required");
 

@@ -25,12 +25,9 @@ namespace API.Services.Implementations
         {
             Filter<Movie> filter = new Filter<Movie>();
 
+            // Fields allowed to get filtered
             Fields<Movie> allowedFields = new Fields<Movie>();
-            allowedFields.AddField(x => x.Name);
-            allowedFields.AddField(x => x.Synopsis);
-            allowedFields.AddField(x => x.Genre);
-            allowedFields.AddField(x => x.Duration);
-            allowedFields.AddField(x => x.Id);
+            allowedFields.AddAllFields();
 
             UserFilter.Validate(userFilters, allowedFields);
             UserFilter.Compose(userFilters, filter);
@@ -95,16 +92,9 @@ namespace API.Services.Implementations
 
             updatedEntity.ValidateWithError();
 
+            // Fields to update
             Fields<Movie> fields = new Fields<Movie>();
-
-            if (updatedEntity.UpdateName)
-                fields.AddField(x => x.Name);
-            if (updatedEntity.UpdateDuration)
-                fields.AddField(x => x.Duration);
-            if (updatedEntity.UpdateGenre)
-                fields.AddField(x => x.Genre);
-            if (updatedEntity.UpdateSynopsis)
-                fields.AddField(x => x.Synopsis);
+            fields.AddAllFieldsExcept(x=> x.Id);
 
             var entity = ClassMapper.Map<Movie>(updatedEntity);
 

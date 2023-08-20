@@ -24,11 +24,7 @@ namespace API.Services.Implementations
             Filter<User> filter = new Filter<User>();
 
             Fields<User> allowedFields = new Fields<User>();
-            allowedFields.AddField(x => x.Name);
-            allowedFields.AddField(x => x.Login);
-            allowedFields.AddField(x => x.Profile);
-            allowedFields.AddField(x => x.Password);
-            allowedFields.AddField(x => x.Id);
+            allowedFields.AddAllFields();
 
             UserFilter.Validate(userFilters, allowedFields);
             UserFilter.Compose(userFilters, filter);
@@ -93,9 +89,7 @@ namespace API.Services.Implementations
             updatedEntity.ValidateWithError();
 
             Fields<User> fields = new Fields<User>();
-
-            if (updatedEntity.UpdateName)
-                fields.AddField(x => x.Name);
+            fields.AddAllFieldsExcept(x => x.Id);
 
             var entity = ClassMapper.Map<User>(updatedEntity);
 

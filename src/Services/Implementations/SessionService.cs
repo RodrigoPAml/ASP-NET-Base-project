@@ -25,9 +25,7 @@ namespace API.Services.Implementations
             Filter<Session> filter = new Filter<Session>();
 
             Fields<Session> allowedFields = new Fields<Session>();
-            allowedFields.AddField(x => x.MovieId);
-            allowedFields.AddField(x => x.Date);
-            allowedFields.AddField(x => x.Id);
+            allowedFields.AddAllFields();
 
             UserFilter.Validate(userFilters, allowedFields);
             UserFilter.Compose(userFilters, filter);
@@ -97,11 +95,7 @@ namespace API.Services.Implementations
             updatedEntity.ValidateWithError();
 
             Fields<Session> fields = new Fields<Session>();
-
-            if (updatedEntity.UpdateMovieId)
-                fields.AddField(x => x.Movie);
-            if (updatedEntity.UpdateDate)
-                fields.AddField(x => x.Date);
+            fields.AddAllFieldsExcept(x => x.Id);
 
             var entity = ClassMapper.Map<Session>(updatedEntity);
 
