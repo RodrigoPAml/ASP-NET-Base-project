@@ -95,7 +95,7 @@ namespace API.Services.Implementations
             updatedEntity.ValidateWithError();
 
             Fields<Session> fields = new Fields<Session>();
-            fields.AddAllFieldsExcept(x => x.Id);
+            fields.AddAllFieldsExcept<UpdatedSession>(x => x.Id);
 
             var entity = ClassMapper.Map<Session>(updatedEntity);
 

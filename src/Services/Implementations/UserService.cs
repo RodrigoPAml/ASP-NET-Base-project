@@ -89,7 +89,10 @@ namespace API.Services.Implementations
             updatedEntity.ValidateWithError();
 
             Fields<User> fields = new Fields<User>();
-            fields.AddAllFieldsExcept(x => x.Id);
+            fields.AddAllFieldsExcept<UpdatedUser>(x => x.Id);
+
+            if (string.IsNullOrEmpty(updatedEntity.Password))
+                fields.RemoveField(x => x.Password);
 
             var entity = ClassMapper.Map<User>(updatedEntity);
 

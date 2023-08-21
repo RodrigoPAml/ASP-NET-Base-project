@@ -94,7 +94,7 @@ namespace API.Services.Implementations
 
             // Fields to update
             Fields<Movie> fields = new Fields<Movie>();
-            fields.AddAllFieldsExcept(x=> x.Id);
+            fields.AddAllFieldsExcept<UpdatedMovie>(x => x.Id);
 
             var entity = ClassMapper.Map<Movie>(updatedEntity);
 
