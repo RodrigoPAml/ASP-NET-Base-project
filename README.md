@@ -3,6 +3,8 @@ Base ASP NET Kestrel server project with common features for developing with mic
 
 Current used with postgres but can be adapted to other databases easily
 
+Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
+
 # Features
 - Jwt bearer token authentication
 - Swagger setup
