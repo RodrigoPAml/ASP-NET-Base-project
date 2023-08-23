@@ -12,7 +12,7 @@ namespace API.Models.NewEntity
 
         public string Synopsis { get; set; }
 
-        public float? Duration { get; set; }
+        public int? Duration { get; set; }
 
         public MovieGenre? Genre { get; set; }
 

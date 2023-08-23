@@ -1,5 +1,7 @@
 ﻿using API.Infra.Exceptions;
 using AutoMapper.Internal;
+using Newtonsoft.Json.Linq;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
@@ -81,9 +83,20 @@ namespace API.Infra.Query
                         .GetProperties()
                         .Where(x => x.Name.ToLower() == userFilter.Field.ToLower())
                         .FirstOrDefault()
-                        .PropertyType;
+                    .PropertyType;
 
-                    ConstantExpression right = Expression.Constant(Convert.ChangeType(userFilter.Value, type), type);
+                    ConstantExpression right = null;
+
+                    if (type.IsEnum)
+                    {
+                        var enumValue = Int32.Parse(userFilter.Value);
+                        object selectedEnumValue = Enum.ToObject(type, enumValue);
+                        right = Expression.Constant(selectedEnumValue, type);
+                    }
+                    else
+                    {
+                        right = Expression.Constant(Convert.ChangeType(userFilter.Value, type), type);
+                    }
 
                     var left = Expression.PropertyOrField(parameter, userFilter.Field);
                     BinaryExpression binaryExpression = null;
