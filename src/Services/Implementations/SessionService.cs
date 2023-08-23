@@ -45,7 +45,7 @@ namespace API.Services.Implementations
                     {
                         x.Movie.Name,
                     },
-                    Date = x.Date.ToString("dd/MM/yyyy hh:mm"),
+                    Date = x.Date.ToString("dd/MM/yyyy"),
                 },
                 order
             );
