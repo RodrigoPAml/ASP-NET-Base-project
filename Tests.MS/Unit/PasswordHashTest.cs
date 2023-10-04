@@ -3,7 +3,7 @@ using Infra.BCrypt;
 namespace Tests.MS.Unit
 {
     [TestClass]
-    public class PasswordHash
+    public class PasswordHashTest
     {
         [TestMethod]
         public void TestValid()
