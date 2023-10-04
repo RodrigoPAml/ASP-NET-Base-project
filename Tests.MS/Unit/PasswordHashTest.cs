@@ -6,21 +6,25 @@ namespace Tests.MS.Unit
     public class PasswordHashTest
     {
         [TestMethod]
-        public void TestValid()
+        [DataRow("#4j1239$DKT")] 
+        [DataRow("rodrigo12345")]
+        [DataRow("00011122222")] 
+        public void TestValid(string password)
         {
-            string password = "12312312321";
             string hash = BCryptHasher.EncryptPassword(password);
 
             Assert.IsTrue(BCryptHasher.IsValidPassword(password, hash));   
         }
 
         [TestMethod]
-        public void TestInvalid()
+        [DataRow("#4j1239$DKT")]
+        [DataRow("rodrigo12345")]
+        [DataRow("00011122222")]
+        public void TestInvalid(string password)
         {
-            string password = "19283789173123";
             string hash = BCryptHasher.EncryptPassword(password);
 
-            Assert.IsFalse(BCryptHasher.IsValidPassword("123123123123123", hash));
+            Assert.IsFalse(BCryptHasher.IsValidPassword("121231233", hash));
         }
     }
 }

@@ -22,3 +22,7 @@
 /WebAPI/bin/Debug/net6.0/runtimes
 /WebAPI/bin/Debug/net6.0
 /WebAPI/obj
+/Test.xUnit/bin/Debug/net6.0
+/Test.xUnit/obj
+/Tests.NUnit/bin/Debug/net6.0
+/Tests.NUnit/obj

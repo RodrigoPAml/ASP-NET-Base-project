@@ -26,7 +26,7 @@
 	</None>
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="xcopy /E /I &quot;$(SolutionDir)Infra/Migrations/Data&quot; &quot;$(OutputPath)Migrations&quot;" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /E /I &quot;$(SolutionDir)Infra/Migrations/Data&quot; &quot;$(OutputPath)Migrations&quot; /Y /D" />
   </Target>
 </Project>

@@ -49,7 +49,7 @@ namespace Application.Query
             if (allowedFields == null || allowedFields.Count() == 0)
                 return;
 
-            var allowedFieldsNames = allowedFields.GetNames();
+            var allowedFieldsNames = allowedFields.GetNames(false);
 
             if (!allowedFieldsNames.Contains(orderBy.Field))
                 throw new BusinessException("Internal error: Ordenation by this fields is invalid or not allowed");
@@ -75,9 +75,13 @@ namespace Application.Query
 
                 return new OrderBy<T>(exp, orderBy.Ascending);
             }
+            catch(BusinessException)
+            {
+                throw;
+            }
             catch(Exception)
             {
-                throw new BusinessException("Internal in ordenation composition");
+                throw new BusinessException("Internal error in ordenation composition");
             }
         }
     }

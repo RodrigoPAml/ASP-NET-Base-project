@@ -3,32 +3,31 @@ using Domain.Exceptions;
 using Domain.Models.Entities;
 using Domain.Query;
 
-namespace Tests.MS.Unit
+namespace Tests.xUnit.Unit
 {
-    [TestClass]
     public class QueryTest
     {
         private static string Filter = "[{\"field\": \"Name\", \"operation\": \"=\", \"value\": \"rodrigo\" }, {\"field\": \"Login\", \"operation\": \"=\", \"value\": \"admin\"}]";
         private static string Order = "{\"field\": \"Name\", \"ascending\": true }";
 
-        [TestMethod]
+        [Fact]
         public void TestUserFilter()
         {
             var filter = UserFilter.Interpret(Filter);
 
-            Assert.IsTrue(filter.Count == 2);
+            Assert.True(filter.Count == 2);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestFilter()
         {
             Fields<User> fields = new Fields<User>(x => x.Name, x => x.Login);
             Filter<User> filterBy = UserFilter.Compose(Filter, fields);
 
-            Assert.IsTrue(filterBy != null);
+            Assert.True(filterBy != null);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNotAllowedFilter()
         {
             Fields<User> fields = new Fields<User>(x => x.Name);
@@ -43,27 +42,27 @@ namespace Tests.MS.Unit
                 isValid = true;
             }
 
-            Assert.IsTrue(isValid == true);
+            Assert.True(isValid == true);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestUserOrderBy()
         {
             var order = UserOrderBy.Interpret(Order);
 
-            Assert.IsTrue(order != null);
+            Assert.True(order != null);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestOrderBy()
         {
             Fields<User> fields = new Fields<User>(x => x.Name);
             OrderBy<User> orderBy = UserOrderBy.Compose(Order, fields);
 
-            Assert.IsTrue(orderBy != null);
+            Assert.True(orderBy != null);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNotAllowedOrderBy()
         {
             Fields<User> fields = new Fields<User>(x => x.Password);
@@ -78,7 +77,7 @@ namespace Tests.MS.Unit
                 isValid = true;
             }
 
-            Assert.IsTrue(isValid == true);
+            Assert.True(isValid == true);
         }
     }
 }
