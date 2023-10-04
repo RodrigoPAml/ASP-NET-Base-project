@@ -20,6 +20,8 @@ Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 - Entity Auto Mapper
 - MVC pattern where (View can be in a javascript front-end)
 
+![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/d00bea74-4562-4d88-84b2-a847e4d3f66b)
+
 ## Overview
 
  - Comes with authentication and user, movie and session CRUD
