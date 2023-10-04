@@ -3,6 +3,22 @@
 ################################################################################
 
 /.vs
-/bin/Debug/net6.0
-/obj
-/bin/Release/net6.0
+/Application/bin/Debug/net6.0
+/Application/obj/Debug/net6.0
+/Application/obj/Release/net6.0
+/Application/obj
+/Domain/bin/Debug/net6.0
+/Domain/obj/Debug/net6.0
+/Domain/obj/Release/net6.0
+/Domain/obj
+/Infra/bin/Debug/net6.0
+/Infra/obj
+/IoC/bin/Debug/net6.0
+/IoC/obj
+/Tests/bin/Debug/net6.0
+/Tests/obj
+/Tests.MS/bin/Debug/net6.0
+/Tests.MS/obj
+/WebAPI/bin/Debug/net6.0/runtimes
+/WebAPI/bin/Debug/net6.0
+/WebAPI/obj
