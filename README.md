@@ -1,5 +1,5 @@
 # ASP NET base project
-Base ASP NET Kestrel server project with common features for developing with micro services
+Base ASP NET Kestrel server project with common features for developing with microservices
 
 Current used with postgres but can be adapted to other databases easily
 
