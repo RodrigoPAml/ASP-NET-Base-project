@@ -5,7 +5,7 @@ Current used with postgres but can be adapted to other databases easily
 
 Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 
-# Features
+## Features
 - Clean Architecture (DDD)
 - Unit and Integration Test
 - Jwt bearer token authentication
@@ -19,6 +19,8 @@ Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 - Service hooks
 - Entity Auto Mapper
 - MVC pattern where (View can be in a javascript front-end)
+
+## Layers
 
 ![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/d00bea74-4562-4d88-84b2-a847e4d3f66b)
 
