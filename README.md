@@ -6,17 +6,19 @@ Current used with postgres but can be adapted to other databases easily
 Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 
 # Features
+- Clean Architecture (DDD)
+- Unit and Integration Test
 - Jwt bearer token authentication
 - Swagger setup
 - Migration application system
-- Repository service pattern
-- Basic filter input in controller
+- Repository-Service pattern
+- Basic filter by input in controller
 - Basic order by input in controller
 - BCrypt for password security
 - Model self validation
 - Service hooks
 - Entity Auto Mapper
-- MVC pattern where (View should be in a javascript front-end consuming json)
+- MVC pattern where (View can be in a javascript front-end)
 
 ## Overview
 
@@ -206,16 +208,16 @@ and the results
 
 Use the movie and/or session classes to understand how to do it
 
-- Create migration and put in migrations folders (Folder migrations)
-- Create the entity model and crud models NewEntity and UpdatedEntity with its validations (Folder Models)
-- Create a database mapping for the entity model (Folder Mappings)
-- Register DbContext and database mapping (Folder registration)
-- Create mapping between models and entity (Folder registration)
-- Create a repository class (Folder repositories)
-- Register repository (Folder registration)
-- Create a service class (Folder services)
-- Register the service class (Folder registration)
-- Create the controller (Folder controllers)
+- Create migration and put in migrations folders (Folder migrations in infra layer)
+- Create the entity model and a validator if needed (Domain layer)
+- Create a repository for the entity (Domain Layer and Infra layer)
+- Create a database mapping for the entity model (Folder Mappings in Infra layer)
+- Register in DbContext and database mapping (Infra layer)
+- Create a service for the entity (Domain Layer)
+- Create a app service and crud models NewEntity, UpdatedEntity (Application Layer)
+- Create mapping between domain models and application models (Application Layer)
+- Create the controller (Folder controllers in WebAPI layer)
+- Don't forget to register all the services (IoC project)
 - Test it!
 
 
