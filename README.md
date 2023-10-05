@@ -7,6 +7,7 @@ Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 
 ## Features
 - Clean Architecture (DDD)
+- MVC (with front-end represeting the view)
 - Unit and Integration Test
 - Jwt bearer token authentication
 - Swagger setup
@@ -19,6 +20,18 @@ Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 - Service hooks
 - Entity Auto Mapper
 - MVC pattern where (View can be in a javascript front-end)
+
+## MVC
+
+MVC, which stands for Model-View-Controller, is a software architectural pattern commonly used in the design and development of interactive and user-friendly applications. It separates an application into three interconnected components, each with its own responsibilities:
+
+- Model: The Model represents the application's data and business logic. It encapsulates the application's data and the rules and operations that can be performed on that data. The Model component is responsible for managing data storage, retrieval, and manipulation. It should be independent of the user interface and the presentation layer.
+
+- View: The View is responsible for presenting the data to the user and for handling user interface elements such as buttons, forms, and menus. It represents the graphical user interface (GUI) or the presentation layer of the application. Views display the data from the Model to the user and receive user input, which is then forwarded to the Controller for processing.
+
+- Controller: The Controller acts as an intermediary between the Model and the View. It receives user input from the View, processes it, and makes appropriate updates to the Model or the View, or both. It contains the application's logic for handling user interactions and business rules. The Controller ensures that the Model and the View remain separate and do not directly communicate with each other. Instead, they communicate through the Controller.
+
+The MVC pattern promotes the separation of concerns in software design, making applications more modular, maintainable, and scalable. It also allows for easier testing of individual components since each component has distinct responsibilities. Many modern software frameworks and technologies, especially in web development, use variations of the MVC pattern or similar architectural patterns to create well-structured and organized applications.
 
 ## Layers
 
