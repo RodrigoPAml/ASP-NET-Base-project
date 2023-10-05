@@ -7,7 +7,7 @@ Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 
 ## Features
 - Clean Architecture (DDD)
-- MVC (with front-end represeting the view)
+- MVC (with front-end represeting the view in NextJS)
 - Unit and Integration Test
 - Jwt bearer token authentication
 - Swagger setup
@@ -19,7 +19,6 @@ Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 - Model self validation
 - Service hooks
 - Entity Auto Mapper
-- MVC pattern where (View can be in a javascript front-end)
 
 ## MVC
 
