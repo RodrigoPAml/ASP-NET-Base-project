@@ -14,11 +14,13 @@ namespace Application.Services.Implementations
 {
     public partial class UserService : BaseService<User>, IUserService
     {
-        public UserValidator validator = new UserValidator();
+        private readonly UserValidator validator;
 
         public UserService(IServiceProvider provider, IUserRepository repo) : base(repo, provider)
         {
             AddAction(ValidateLoginExists, ActionTypeEnum.Create);
+
+            validator = _provider.GetService<UserValidator>();
         }
 
         public PagedData GetPaged(uint page, uint pageSize, Filter<User> filter, OrderBy<User> order, Select<User> select)
@@ -34,11 +36,7 @@ namespace Application.Services.Implementations
 
         public object Get(ulong id, Select<User> select)
         {
-            var user =
-                Get(
-                    x => x.Id == id, 
-                    select
-                )
+            var user = Get(x =>  x.Id == id, select)
                 .FirstOrDefault();
 
             if(user == null)

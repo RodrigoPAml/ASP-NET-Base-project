@@ -12,6 +12,7 @@ namespace IoC
 #endif
             SecurityRegister.Register(builder.Services);  
             RepositoriesRegister.Register(builder.Services);
+            ValidatorsRegister.Register(builder.Services);
             ServicesRegister.Register(builder.Services);
             AppServicesRegister.Register(builder.Services);
             JwtRegister.BuildAuthentication(builder);

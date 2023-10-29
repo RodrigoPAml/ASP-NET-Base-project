@@ -30,11 +30,7 @@ namespace Application.Services.Implementations
 
         public object Get(ulong id, Select<Session> select)
         {
-            var user =
-                Get(
-                    x => x.Id == id,
-                    select
-                )
+            var user = Get(x => x.Id == id, select)
                 .FirstOrDefault();
 
             if (user == null)
