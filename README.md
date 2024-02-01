@@ -32,7 +32,9 @@ MVC, which stands for Model-View-Controller, is a software architectural pattern
 
 The MVC pattern promotes the separation of concerns in software design, making applications more modular, maintainable, and scalable. It also allows for easier testing of individual components since each component has distinct responsibilities. Many modern software frameworks and technologies, especially in web development, use variations of the MVC pattern or similar architectural patterns to create well-structured and organized applications.
 
-## Layers
+## Project Layers
+
+Clean Architecture implemeted
 
 ![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/d00bea74-4562-4d88-84b2-a847e4d3f66b)
 
