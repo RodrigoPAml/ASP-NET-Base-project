@@ -34,7 +34,7 @@ The MVC pattern promotes the separation of concerns in software design, making a
 
 ## Project Layers
 
-Clean Architecture implemented
+Clean Architecture implemented: more info in https://github.com/RodrigoPAml/Design-patterns-principles-and-Code-Architecture
 
 ![image](https://github.com/RodrigoPAml/ASP-NET-Base-project/assets/41243039/d00bea74-4562-4d88-84b2-a847e4d3f66b)
 
