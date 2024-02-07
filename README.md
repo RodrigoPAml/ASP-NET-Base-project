@@ -6,7 +6,7 @@ Current used with postgres but can be adapted to other databases easily
 Works with this front-end https://github.com/RodrigoPAml/Next-JS-Base-Repo
 
 ## Features
-- Clean Architecture (DDD)
+- Clean Architecture
 - MVC (with front-end represeting the view in NextJS)
 - Unit and Integration Test
 - Jwt bearer token authentication
