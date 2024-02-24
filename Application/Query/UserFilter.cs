@@ -103,6 +103,11 @@ namespace Application.Query
                     }
 
                     var left = Expression.PropertyOrField(parameter, userFilter.Field);
+
+                    // Nullable.Value adaption
+                    if (left.Type.IsGenericType && left.Type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                        left = Expression.Property(left, "Value");
+
                     BinaryExpression binaryExpression = null;
 
                     switch (userFilter.Operation)
@@ -143,6 +148,18 @@ namespace Application.Query
             catch (Exception)
             {
                 throw new BusinessException("Internal error in filter composition");
+            }
+        }
+
+        private static Type GetUnderlyingType(Type nullableType)
+        {
+            if (nullableType.IsGenericType && nullableType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                return Nullable.GetUnderlyingType(nullableType);
+            }
+            else
+            {
+                return nullableType;
             }
         }
     }
